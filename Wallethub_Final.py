@@ -1,6 +1,6 @@
 
 
-#Estimating the 
+#Predicting the target variable
 
 #Importing necessary libraries
 import pandas as pd
@@ -54,16 +54,14 @@ X = scaler.fit_transform(X)
 # Developing and fitting the xgboost model. Other models were tried but xgboost gives very low RMSE
 
 import xgboost as xgb
-from sklearn.model_selection import cross_val_score
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
 xgbmodel = xgb.XGBRegressor(learning_rate=0.1, max_depth=7, colsample_bytree =0.7, subsample =0.7)
 xgbmodel.fit(X_train, y_train)
-scoresxgb_param = cross_val_score(xgbmodel, X_test, y_test, cv=10)
 y_pred = xgbmodel.predict(X_test)
 rmse_param = sqrt(mean_squared_error(y_test, y_pred))
-
+# RMSE is ~ 21
 ################################################
 
 # Grid search to find the best parameters after tuning
