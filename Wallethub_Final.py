@@ -9,7 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.model_selection import train_test_split
 import xgboost as xgb
-from sklearn.model_selection import cross_val_score
+
 
 #Creating X and y datasets from the file
 data_set = pd.read_csv(r'C:\Users\PraveenT\Desktop\Data Scientist Test\dataset_00_with_header.csv')
